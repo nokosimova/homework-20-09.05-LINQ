@@ -55,8 +55,25 @@ namespace hw20_LINQ
                                  select i;
             foreach (var i in sortedWordList)
                 Console.Write($"{i.value} ");
+
             //**************//
             Console.WriteLine("\nЗадание 2.4 :  ");
+            Console.WriteLine("Введите через пробел массив целых чисел в котором все элементы равны, кроме одного:");
+            string[] inputStream2 = Console.ReadLine().Split();
+            List<int> numberList = new List<int>();
+            int ans;
+
+            foreach(var i in inputStream2)
+                numberList.Add(int.Parse(i));
+            numberList.Sort();
+            int minNum = numberList.Min();
+            int maxNum = numberList.Max();
+
+            if (numberList[1] == minNum) ans = maxNum;
+            else ans = minNum;
+           // var ans = numbetList.Distinct();
+            Console.Write($"белая ворона - это число {ans}");
+
             Console.ReadKey();
         }
 
